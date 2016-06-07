@@ -3,19 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
+
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
     <script src="./quiz.js"></script>
-    <script src="./quiz-tester.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="./quiz.css">
+
 </head>
+
 <body>
-    <h3></h3>
-    <h3></h3>
-    <h1></h1>
-    <div>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+
+  <div class=game>
+    <header class=gameheader> Know Your Colors Test </header>
+    <h1 class=question></h1>
+    <div class=answers>
+        <button id=red></button>
+        <button id=green></button>
+        <button id=blue></button>
+        <button id=yellow></button>
     </div>
+        <h5 class="restart">restart</h5>
+    </div>
+
+  <div class=board>
+    <header class=boardheader> Dashboard</header>
+    <h2></h2>
+    <h4></h4>
+        <div class=players>
+        <h3 class=player1></h3>
+        <h3 class=player2></h3>
+        </div>
+    </div>
+
 </body>
+
 </html>

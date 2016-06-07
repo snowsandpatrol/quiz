@@ -1,5 +1,18 @@
 /* global $ */
 /* exports isGameOver, whoWon, playTurn, restart, currentQuestion, correctAnswer, numberOfAnswers */
+$(document).ready(function() {
+console.log(quiz.currentQuestion % 2);
+
+$('.restart').click(function () {
+  restart ();
+  updateDisplay();
+  console.log("restart!")
+  // window.location.reload();
+})
+});
+
+//RESTART
+
 
 // A constructor function allows us to easily make question objects
 function Question (prompt, answers, correctAnswerIndex) {
@@ -8,13 +21,17 @@ function Question (prompt, answers, correctAnswerIndex) {
   this.correctChoice = correctAnswerIndex
 }
 
+
 // using the new keyword and the constructor we can create questions for the quiz
-var question1 = new Question('the question', ['answer a', 'answer b', 'answer c', 'answer d'], 0)
+var question0 = new Question('Color of Sun', ['Red', 'Green', 'Blue', 'Yellow'], 0)
+var question1 = new Question('Color of Tree', ['Red', 'Green', 'Blue', 'Yellow'], 1)
+var question2 = new Question('Color of Sky', ['Red', 'Green', 'Blue', 'Yellow'], 2)
+var question3 = new Question('Color of Banana', ['Red', 'Green', 'Blue', 'Yellow'], 3)
 
 // we can create an object to represent all of the settings and scores for the quiz
 var quiz = {
   currentQuestion: 0,
-  questions: [question1, question1, question1, question1],
+  questions: [question0, question1, question2, question3],
   isGameOver: false,
   player1Points: 0,
   player2Points: 0
@@ -47,15 +64,19 @@ function playTurn (choice) {
   }
   var correct = false
   if (choice === quiz.questions[quiz.currentQuestion].correctChoice) {
-    correct = true
+    correct = true;
+    console.log(correct)
+
     if (quiz.currentQuestion % 2) {
       quiz.player2Points++
+      console.log("player 2 points ", quiz.player2Points)
     } else {
       quiz.player1Points++
+      console.log("player 1 points ", quiz.player1Points)
     }
   }
   ++quiz.currentQuestion
-  if (quiz.currentQuestion === numberOfQuestions()) { 
+  if (quiz.currentQuestion === numberOfQuestions()) {
     quiz.isGameOver = true
   }
   return correct
@@ -85,9 +106,18 @@ function restart () {
 // a function to update the display whenever the data changes
 function updateDisplay () {
   if (isGameOver()) {
-    $('h1').text(' gameover. winner is ' + whoWon())
-  } else {
-    $('h1').text(quiz.currentQuestion + ') ' + quiz.questions[quiz.currentQuestion].prompt)
+    var winner = whoWon ()
+    if (winner= 1)
+    {$('h2').text(' Gameover! Winner is Player 1')}
+    if (winner= 2)
+    {$('h2').text(' Gameover! Winner is Player 2')}
+    if (winner= 3)
+    {$('h2').text(' Gameover! Its a draw!')}
+
+    }
+    else {
+    $('h2').text('Game in Progress: Question ' + quiz.currentQuestion + ' of  ' + quiz.questions.length)
+    $('h1').text(quiz.questions[quiz.currentQuestion].prompt + ' ?')
     // hard coded display, only has 4 answers at a time. Each is displayed as a button, so can use the order (eg) that they appear in the dom to select them
     $('button').eq(0).text(quiz.questions[quiz.currentQuestion].choices[0])
     $('button').eq(1).text(quiz.questions[quiz.currentQuestion].choices[1])
@@ -97,6 +127,12 @@ function updateDisplay () {
   // update player scores regardless
   $('h3').eq(0).text('Player1: ' + quiz.player1Points)
   $('h3').eq(1).text('Player2: ' + quiz.player2Points)
+
+  //update which player's turn
+  if (quiz.currentQuestion % 2)
+  {$('h4').text('Current Player is Player 2')}
+  else
+  {$('h4').text('Current Player is Player 1')}
 }
 
 // the jQuery ready function will add click listeners once the dom is loaded
@@ -108,6 +144,7 @@ $(function () {
     } else {
       // can use jquery index() to find the position of this element in relation to its siblings. works as only answers are in this container
       playTurn($(this).index())
+      console.log($(this).index())
     }
     updateDisplay()
   })
