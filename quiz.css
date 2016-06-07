@@ -1,0 +1,133 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+}
+
+.gameheader {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 100px;
+}
+
+.boardheader {
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.game, .board {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  height: 30em;
+/*//ADD STYLE*/
+  box-shadow:1px 1px 2px 0 #CCCCCC;
+  padding:20px;
+  box-shadow:0 2px 5px 0 rgba(0,0,0,.26);
+  margin: 30px;
+}
+
+.game{
+  flex: 2
+}
+
+.board{
+  flex: 1
+}
+
+.players{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+h4, h3, h2 {
+	margin-bottom:16px;
+	box-shadow:1px 1px 2px 0 #CCCCCC;
+	padding:20px;
+	box-shadow:0 2px 5px 0 rgba(0,0,0,.26);
+  margin-top:40px;
+}
+
+button {
+/*//ACTION*/
+	position: relative;
+	padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+	border-radius: 10px;
+	/*font-family: 'Pacifico', cursive;*/
+	color: #FFF;
+	text-decoration: none;
+  margin-top:40px;
+  font-size: 30px;
+}
+
+button:active {
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid;
+}
+
+#red
+{
+	background-color: #E74C3C;
+	border-bottom: 5px solid #BD3E31;
+	text-shadow: 0px -2px #BD3E31;
+}
+
+#green
+{
+	background-color: #82BF56;
+	border-bottom: 5px solid #669644;
+	text-shadow: 0px -2px #669644;
+}
+
+#blue
+{
+	background-color: #3498DB;
+	border-bottom: 5px solid #2980B9;
+	text-shadow: 0px -2px #2980B9;
+}
+
+#yellow
+{
+	background-color: #F2CF66;
+	border-bottom: 5px solid #D1B358;
+	text-shadow: 0px -2px #D1B358;
+}
+
+.restart{
+  outline:none;
+  /*height: 40px;*/
+  text-align: center;
+  /*width: 130px;*/
+  padding: 20px;
+  border-radius:40px;
+  background: #fff;
+  border: 2px solid #1ECD97;
+  color:#1ECD97;
+  letter-spacing:1px;
+  text-shadow:0;
+  font-size: 30px;
+}
+
+.restart:active {
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid;
+}
