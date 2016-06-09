@@ -27,7 +27,7 @@ body {
 .game, .board {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   align-items: center;
   justify-content: center;
   float: left;
@@ -52,13 +52,13 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 h4, h3, h2 {
 	margin-bottom:16px;
 	box-shadow:1px 1px 2px 0 #CCCCCC;
-	padding:20px;
+	padding:10px;
 	box-shadow:0 2px 5px 0 rgba(0,0,0,.26);
   margin-top:40px;
 }
@@ -74,7 +74,7 @@ button {
 	color: #FFF;
 	text-decoration: none;
   margin-top:40px;
-  font-size: 30px;
+  font-size: 22px;
 }
 
 button:active {
@@ -82,6 +82,10 @@ button:active {
   -webkit-transform: translate(0px,5px);
   border-bottom: 1px solid;
 }
+
+/*#red, #green, #blue, #yellow {
+  flex: 1;
+}*/
 
 #red
 {

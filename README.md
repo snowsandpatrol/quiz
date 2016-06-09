@@ -36,3 +36,5 @@ It is assumed that the turns of the player will be automatically changed after e
 The application will console log all the passed or failed test */
 # quiz
 # quiz
+# mathgame
+# mathgame
